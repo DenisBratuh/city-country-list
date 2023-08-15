@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 97b6285e-aea5-4a08-ad5a-f01d437233f4
+      author: d.bratukh
+      comment: "create table cities"
+      changes:
+        - createTable:
+            tableName: cities
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: country_id
+                  type: uuid
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    unique: true
+              - column:
+                  name: logos
+                  type: bytea
